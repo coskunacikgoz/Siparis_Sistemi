@@ -1,0 +1,12 @@
+﻿@model MvcProject.Models.ViewModels.ProductManiViewModel
+
+@{
+    ViewBag.Title = "AddMyProduct";
+}
+
+<h2>AddMyProduct</h2>
+
+@using (Html.BeginForm("AddMyProduct","Admin",FormMethod.Post)) 
+{
+    @Html.Partial("_ProductManiPartial")
+}

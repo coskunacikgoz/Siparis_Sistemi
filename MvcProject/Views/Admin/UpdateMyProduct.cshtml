@@ -1,0 +1,17 @@
+﻿
+@model MvcProject.Models.ViewModels.ProductManiViewModel
+
+@{
+    ViewBag.Title = "UpdateMyProduct";
+}
+
+<h2>UpdateMyProduct</h2>
+
+@using (Html.BeginForm("UpdateMyProduct", "Admin", FormMethod.Post))
+{
+
+    @Html.HiddenFor(model => model.Product.ProductID)
+
+    @Html.Partial("_ProductManiPartial")
+
+}

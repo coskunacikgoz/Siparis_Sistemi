@@ -1,0 +1,46 @@
+﻿
+@model MvcProject.Models.ViewModels.ListProductsViewModel
+
+@{
+    ViewBag.Title = "ListMyProducts";
+}
+
+<h2>ListMyProducts</h2>
+<hr />
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Units In Stock</th>
+            <th colspan="2">Unit Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Products)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.UnitsInStock</td>
+                <td>@item.UnitPrice</td>
+                <td>@Html.ActionLink("Add Cart","AddMyCart",new { id = item.ProductID},new { @class = "btn btn-primary"})</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="text-center">
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            if (Model.CurrentPage == i)
+            {
+                <li class="active"><a href="/customer/listmyproducts?page=@i">@i</a></li>
+            }
+            else
+            {
+                <li><a href="/customer/listmyproducts?page=@i">@i</a></li>
+            }
+        }
+    </ul>
+</div>
